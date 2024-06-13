@@ -27,7 +27,7 @@ docker-compose ps
 chmod -x grant_privileges.sh
 
 CONTAINER_NAME="database"
-SCRIPT_NAME="grant_privileges.sh"
+SCRIPT_NAME g  grant_privileges.sh"
 
 # Check if the database container is running
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
@@ -40,7 +40,7 @@ if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
   docker exec -it $CONTAINER_NAME chmod +x /$SCRIPT_NAME
 
   # Run the script inside the container
-  docker exec -it $CONTAINER_NAME /$SCRIPT_NAME
+  docker exec -it $CONTAINER_NAME  bash -c "bash /$SCRIPT_NAME"
 
   echo "Privileges setup completed."
 else
