@@ -5,8 +5,8 @@
  ```
  git clone https://github.com/devopseasylearning/openSIS-eric.git openSIS
  cd openSIS 
- chmod 
- bash deploy-app.sh 
+ chmod +x deploy-app.sh 
+ ./deploy-app.sh 
  ```
 
 # Connection database string when prompted  on the app 
