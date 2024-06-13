@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: frontend
+    build: .
+    ports:
+      - "8080:80"
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      opensis_network:
+        aliases:
+          - opensis
+
+  db:
+    container_name: database
+    image: mariadb:10.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123
+      MYSQL_DATABASE: openSIS
+      MYSQL_USER: openSIS_rw
+      MYSQL_PASSWORD: Op3nS!S
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+      - ./mysql-config/strict_mode.cnf:/etc/mysql/conf.d/strict_mode.cnf
+    networks:
+      opensis_network:
+        aliases:
+          - opensis
+
+volumes:
+  db_data:
+
+networks:
+  opensis_network:
