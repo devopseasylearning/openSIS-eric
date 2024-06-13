@@ -10,9 +10,12 @@
  ```
 
 # Connection database string when prompted  on the app 
-database host: `db`  ## make sure to change the default localhost one 
+database host: `db`  ## make sure to change the default localhost one
+
 databse port: `3306` ## should be there by default
+
 database user: `openSIS_rw` ## make sure to change the default root one 
+
 database password `Op3nS!S` 
 
 #### to accesst on teh  browser 
