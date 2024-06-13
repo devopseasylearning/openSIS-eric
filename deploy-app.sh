@@ -20,7 +20,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-
+docker-compose down || true
+docker rm -f database frontend || true
 docker-compose up --build -d
 docker-compose ps
 chmod -x grant_privileges.sh

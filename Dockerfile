@@ -33,12 +33,10 @@ RUN add-apt-repository ppa:ondrej/php -y && \
 # Enable Apache mods and PHP
 RUN a2enmod php7.3 && \
     service apache2 restart
-
+WORKDIR  /var/www/html
 # Clone openSIS-Classic repository
-RUN git clone https://github.com/OS4ED/openSIS-Classic.git  -b ver7.4
-RUN mv  openSIS-Classic  openSIS 
+RUN git clone https://github.com/OS4ED/openSIS-Classic.git  -b ver7.4 openSIS
 RUN chown -R www-data:www-data  openSIS
-RUN mv openSIS  /var/www/html
 
 # Copy startup script and grant execution rights
 COPY start.sh /start.sh

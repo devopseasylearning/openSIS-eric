@@ -8,7 +8,7 @@ services:
       - "8080:80"
       - "80:80"
     volumes:
-      - .:/var/www/html
+      - openSIS:/var/www/html
     depends_on:
       - db
     networks:
@@ -36,6 +36,7 @@ services:
 
 volumes:
   db_data:
+  openSIS:
 
 networks:
   opensis_network:
